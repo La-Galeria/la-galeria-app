@@ -1,0 +1,95 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Models
+
+model Insumo {
+  id Int @id
+  nombre String
+  cantidadInicial Int
+  gastos InsumoGastado[]
+  compras CompraInsumo[]
+}
+
+model InsumoGastado {
+  id Int @id
+  fecha DateTime
+  insumo Insumo @relation(fields: [idInsumo], references: [id])
+  idInsumo Int
+  cantidad Int
+}
+
+model CompraInsumo {
+  id Int @id
+  fecha DateTime
+  insumo Insumo @relation(fields: [idInsumo], references: [id])
+  idInsumo Int
+  cantidad Int
+  valorTotal Int
+}
+
+model Producto {
+  id Int @id
+  nombre String
+  cantidadInicial Int
+  precioVenta Int
+  compras CompraProducto[]
+  ventas VentaProducto[]
+}
+
+model CompraProducto {
+  id Int @id
+  fecha DateTime
+  producto Producto @relation(fields: [idProducto], references: [id])
+  idProducto Int
+  cantidad Int
+  valorTotal Int
+}
+
+model VentaProducto {
+  id Int @id
+  fecha DateTime
+  producto Producto @relation(fields: [idProducto], references: [id])
+  idProducto Int
+  cantidad Int
+}
+
+model Servicio {
+  id Int @id
+  nombre String
+  descripcion String?
+  precio Int
+  ventas VentaServicio[]
+}
+
+model VentaServicio {
+  id Int @id
+  fecha DateTime
+  servicio Servicio @relation(fields: [idServicio], references: [id])
+  idServicio Int
+  cantidad Int
+}
+
+model Pago {
+  id Int @id
+  fecha DateTime
+  descripcion String
+  valor Int
+}
+
+
+model Usuario {
+  id Int @id
+  nombreUsuario String
+  contrasena String
+}
