@@ -1,12 +1,15 @@
+import { ServiceDTO } from "@/dtos/serviceDto";
 import prisma from "@/lib/prisma";
 
-interface ServiceDTO {
-  nombre: string,
-  descripcion: string | null,
-  precio: number
+interface ServiceRepo {
+  get: Function,
+  getAll: Function,
+  add: Function,
+  update: Function,
+  remove: Function
 };
 
-export async function get(id: number) {
+async function get(id: number) {
   return await prisma.servicio.findFirst({
     where: {
       id: id
@@ -14,15 +17,15 @@ export async function get(id: number) {
   });
 }
 
-export async function getAll() {
+async function getAll() {
   return await prisma.servicio.findMany();
 }
 
-export async function add(data: ServiceDTO) {
+async function add(data: ServiceDTO) {
   return await prisma.servicio.create({ data });
 }
 
-export async function update(data: ServiceDTO, id: number) {
+async function update(data: ServiceDTO, id: number) {
   return await prisma.servicio.update({
     where: {
       id: id
@@ -31,10 +34,13 @@ export async function update(data: ServiceDTO, id: number) {
   });
 }
 
-export async function remove(id: number) {
+async function remove(id: number) {
   return await prisma.servicio.delete({
     where: {
       id: id
     }
   });
 }
+
+const serviceRepo: ServiceRepo = { get, getAll, add, update, remove };
+export default serviceRepo;
