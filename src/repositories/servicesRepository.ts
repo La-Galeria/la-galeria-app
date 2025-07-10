@@ -1,12 +1,13 @@
 import { ServiceDTO } from "@/dtos/serviceDto";
+import { Servicio } from "@/generated/prisma";
 import prisma from "@/lib/prisma";
 
 interface ServiceRepo {
-  get: Function,
-  getAll: Function,
-  add: Function,
-  update: Function,
-  remove: Function
+  get(id: number): Promise<Servicio | null>;
+  getAll(): Promise<Servicio[]>;
+  add(data: ServiceDTO): Promise<Servicio>;
+  update(id: number, data: ServiceDTO): Promise<Servicio | null>;
+  remove(id: number): Promise<Servicio | null>
 };
 
 async function get(id: number) {
@@ -25,7 +26,7 @@ async function add(data: ServiceDTO) {
   return await prisma.servicio.create({ data });
 }
 
-async function update(data: ServiceDTO, id: number) {
+async function update(id: number, data: ServiceDTO) {
   return await prisma.servicio.update({
     where: {
       id: id
