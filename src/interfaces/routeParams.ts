@@ -1,5 +1,5 @@
 export default interface Params {
   params: {
-    id: number
+    id: string
   }
 };
