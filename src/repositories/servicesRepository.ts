@@ -1,14 +1,9 @@
 import { ServiceDTO } from "@/dtos/serviceDto";
 import { Servicio } from "@/generated/prisma";
+import Repository from "@/interfaces/repository";
 import prisma from "@/lib/prisma";
 
-interface ServiceRepo {
-  get(id: number): Promise<Servicio | null>;
-  getAll(): Promise<Servicio[]>;
-  add(data: ServiceDTO): Promise<Servicio>;
-  update(id: number, data: ServiceDTO): Promise<Servicio | null>;
-  remove(id: number): Promise<Servicio | null>
-};
+interface ServiceRepo extends Repository<Servicio, ServiceDTO> { };
 
 async function get(id: number) {
   return await prisma.servicio.findFirst({
