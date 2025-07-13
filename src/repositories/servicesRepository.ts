@@ -4,11 +4,11 @@ import IRepository from "@/interfaces/IRepository";
 import prisma from "@/lib/prisma";
 import BaseRepository from "./baseRepository";
 
-class ServiceRepo extends BaseRepository<Servicio, ServiceDTO> implements IRepository<Servicio, ServiceDTO> {
+class ServicesRepo extends BaseRepository<Servicio, ServiceDTO> implements IRepository<Servicio, ServiceDTO> {
   constructor() {
     super(prisma.servicio);
   }
 }
 
-const servicesRepo = new ServiceRepo();
+const servicesRepo = new ServicesRepo();
 export default servicesRepo;
