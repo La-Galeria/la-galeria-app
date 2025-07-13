@@ -4,7 +4,7 @@ import IRepository from "@/interfaces/IRepository";
 export default abstract class BaseRepository<TEntity, TDto> implements IRepository<TEntity, TDto> {
   private dataset: IDataset<TEntity, TDto>;
 
-  constructor(dataset: IDataset<TEntity, TDto>) {
+  constructor(dataset: IDataset<TEntity, TDto> | any) {
     this.dataset = dataset;
   }
 
@@ -23,6 +23,10 @@ export default abstract class BaseRepository<TEntity, TDto> implements IReposito
   }
 
   async update(id: number, data: TDto): Promise<TEntity | null> {
+    const entity = await this.get(id);
+    if (!entity)
+      return null;
+
     return await this.dataset.update({
       where: { id },
       data
@@ -30,6 +34,10 @@ export default abstract class BaseRepository<TEntity, TDto> implements IReposito
   }
 
   async remove(id: number): Promise<TEntity | null> {
+    const entity = await this.get(id);
+    if (!entity)
+      return null;
+
     return await this.dataset.delete({
       where: { id }
     });
