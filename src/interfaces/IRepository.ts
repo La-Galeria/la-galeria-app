@@ -1,4 +1,4 @@
-export default interface Repository<TEntity, TDto> {
+export default interface IRepository<TEntity, TDto> {
   get(id: number): Promise<TEntity | null>;
   getAll(): Promise<TEntity[]>;
   add(data: TDto): Promise<TEntity>;
