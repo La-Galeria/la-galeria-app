@@ -1,9 +1,11 @@
 import serviceController from "@/controllers/serviceController";
 
+const controller = serviceController;
+
 export async function GET() {
-  return serviceController.getAll();
+  return controller.getAll();
 }
 
 export async function POST(request: Request) {
-  return serviceController.add(request);
+  return controller.add(request);
 }
