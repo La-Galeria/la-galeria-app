@@ -1,42 +1,14 @@
 import AssetDTO from "@/dtos/assetDto";
 import { Insumo } from "@/generated/prisma";
-import Repository from "@/interfaces/repository";
+import IRepository from "@/interfaces/IRepository";
 import prisma from "@/lib/prisma";
+import BaseRepository from "./baseRepository";
 
-interface AssetsRepo extends Repository<Insumo, AssetDTO> { };
+class AssetsRepo extends BaseRepository<Insumo, AssetDTO> implements IRepository<Insumo, AssetDTO> {
+  constructor() {
+    super(prisma.insumo);
+  }
+};
 
-async function get(id: number) {
-  return await prisma.insumo.findFirst({
-    where: {
-      id: id
-    }
-  });
-}
-
-async function getAll() {
-  return await prisma.insumo.findMany();
-}
-
-async function add(data: AssetDTO) {
-  return await prisma.insumo.create({ data });
-}
-
-async function update(id: number, data: AssetDTO) {
-  return await prisma.insumo.update({
-    where: {
-      id: id
-    },
-    data: data
-  });
-}
-
-async function remove(id: number) {
-  return await prisma.insumo.delete({
-    where: {
-      id: id
-    }
-  });
-}
-
-const assetsRepo: AssetsRepo = { get, getAll, add, update, remove };
+const assetsRepo = new AssetsRepo();
 export default assetsRepo;

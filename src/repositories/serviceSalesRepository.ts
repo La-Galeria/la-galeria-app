@@ -1,42 +1,14 @@
 import ServiceSaleDTO from "@/dtos/serviceSaleDto";
 import { VentaServicio } from "@/generated/prisma";
-import Repository from "@/interfaces/repository";
+import IRepository from "@/interfaces/IRepository";
 import prisma from "@/lib/prisma";
+import BaseRepository from "./baseRepository";
 
-interface ServiceSalesRepo extends Repository<VentaServicio, ServiceSaleDTO> { };
-
-async function get(id: number) {
-  return await prisma.ventaServicio.findFirst({
-    where: {
-      id: id
-    }
-  });
+class ServiceSalesRepo extends BaseRepository<VentaServicio, ServiceSaleDTO> implements IRepository<VentaServicio, ServiceSaleDTO> {
+  constructor() {
+    super(prisma.ventaServicio);
+  }
 }
 
-async function getAll() {
-  return await prisma.ventaServicio.findMany();
-}
-
-async function add(data: ServiceSaleDTO) {
-  return await prisma.ventaServicio.create({ data });
-}
-
-async function update(id: number, data: ServiceSaleDTO) {
-  return await prisma.ventaServicio.update({
-    where: {
-      id: id
-    },
-    data: data
-  });
-}
-
-async function remove(id: number) {
-  return await prisma.ventaServicio.delete({
-    where: {
-      id: id
-    }
-  });
-}
-
-const serviceSalesRepo: ServiceSalesRepo = { get, getAll, add, update, remove };
+const serviceSalesRepo = new ServiceSalesRepo();
 export default serviceSalesRepo;
