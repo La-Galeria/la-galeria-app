@@ -54,7 +54,7 @@ export default abstract class BaseController<TEntity, TDto> implements IControll
   }
 
   private notFoundResponse() {
-    return NextResponse.json({}, { status: 400 });
+    return NextResponse.json({}, { status: 404 });
   }
 
   private okResponse(data: unknown) {
