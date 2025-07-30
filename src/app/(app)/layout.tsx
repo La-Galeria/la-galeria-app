@@ -8,7 +8,7 @@ export default function AppLayout({
 }) {
   return (
     <>
-      <NavBar className="absolute bottom-0 flex justify-between" />
+      <NavBar />
       <main>
         {children}
       </main>
