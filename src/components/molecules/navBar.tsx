@@ -1,16 +1,17 @@
 import { GoHome } from "react-icons/go";
 import NavItem from "../atoms/navItem";
 import { MdLogout, MdOutlineInventory } from "react-icons/md";
-import { FaPlus, FaScissors } from "react-icons/fa6";
+import { FaPlus } from "react-icons/fa6";
+import { FiScissors } from "react-icons/fi";
 
 export default function NavBar({ className }: { className: string }) {
   return (
-    <nav className={className}>
-      <NavItem route="/"><GoHome /></NavItem>
-      <NavItem route="/inventario"><MdOutlineInventory /></NavItem>
-      <NavItem route="/nuevo"><FaPlus /></NavItem>
-      <NavItem route="/servicios"><FaScissors /></NavItem>
-      <NavItem route="/salir"><MdLogout /></NavItem>
+    <nav className="bg-lime-950 fixed bottom-0 text-slate-50 flex justify-around w-full">
+      <NavItem route="/" Icon={GoHome} />
+      <NavItem route="/inventario" Icon={MdOutlineInventory} />
+      <NavItem route="/nuevo" Icon={FaPlus} />
+      <NavItem route="/servicios" Icon={FiScissors} />
+      <NavItem route="/salir" Icon={MdLogout} />
     </nav>
   );
 }
