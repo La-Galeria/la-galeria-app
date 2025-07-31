@@ -9,7 +9,6 @@ interface NavItemProps {
 export default function NavItem({ route, Icon }: NavItemProps) {
   const pathname = usePathname();
   const active = pathname === route;
-  console.log(active);
 
   return (
     <Link href={route}>
