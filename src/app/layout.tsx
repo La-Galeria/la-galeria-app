@@ -8,7 +8,7 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body className="absolute">
+      <body className="absolute h-full w-full">
         {children}
       </body>
     </html>

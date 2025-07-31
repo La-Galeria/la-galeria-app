@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+body {
+  background-image: url('/images/forest.webp');
+  background-size: 500px;
+  background-position: top;
+}

@@ -9,7 +9,7 @@ export default function AppLayout({
   return (
     <>
       <NavBar />
-      <main>
+      <main className="h-full w-full bg-slate-50 opacity-70">
         {children}
       </main>
     </>
