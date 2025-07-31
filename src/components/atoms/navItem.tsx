@@ -12,8 +12,8 @@ export default function NavItem({ route, Icon }: NavItemProps) {
 
   return (
     <Link href={route}>
-      <div className={`p-2 ${active && "bg-slate-50"}`}>
-        <Icon className={`size-14 ${active ? "text-lime-950" : "text-slate-50"}`} />
+      <div className={`px-4 py-2 ${active && "bg-slate-50"}`}>
+        <Icon className={`size-10 ${active ? "text-lime-950" : "text-slate-50"}`} />
       </div>
     </Link>
   );
