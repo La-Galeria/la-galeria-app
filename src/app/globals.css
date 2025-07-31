@@ -5,3 +5,12 @@ body {
   background-size: 500px;
   background-position: top;
 }
+
+/* Add common header conventions */
+h1 {
+  @apply text-4xl;
+}
+
+h2 {
+  @apply text-3xl;
+}
