@@ -1,4 +1,4 @@
-import { GrFormNext } from "react-icons/gr"
+import { GrNext } from "react-icons/gr"
 import StyleLink from "./styleLink"
 
 interface SubmoduleLinkProps {
@@ -9,9 +9,9 @@ interface SubmoduleLinkProps {
 
 export default function SubmoduleLink({ text, route, InnerIcon }: SubmoduleLinkProps) {
   return (
-    <StyleLink Icon={GrFormNext} route={route} placeTagAtLeft={false}>
-      <h1>{text}</h1>
-      <InnerIcon className="size-10" />
+    <StyleLink Icon={GrNext} route={route} placeTagAtLeft={false}>
+      <h2>{text}</h2>
+      <InnerIcon className="size-10 text-orange-950" />
     </StyleLink>
   );
 }
