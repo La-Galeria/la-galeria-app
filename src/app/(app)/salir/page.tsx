@@ -1,5 +1,16 @@
+import PageTitle from "@/components/atoms/pageTitle";
+import StandardStyleCard from "@/components/atoms/standardStyleCard";
+import { MdLogout } from "react-icons/md";
+
 export default function Page() {
   return (
-    <h1>Hello world!</h1>
+    <>
+      <PageTitle>¿Desea salir?</PageTitle> 
+      <div className="mt-10">
+        <StandardStyleCard placeTagAtLeft={false} Icon={MdLogout}>
+          <h2>Salir</h2>
+        </StandardStyleCard>
+      </div>
+    </>
   );
 }
