@@ -1,5 +1,7 @@
 import { GrNext } from "react-icons/gr"
 import StyleLink from "./styleLink"
+import Link from "next/link";
+import StandardStyleCard from "./standardStyleCard";
 
 interface SubmoduleLinkProps {
   text: string,
@@ -9,9 +11,11 @@ interface SubmoduleLinkProps {
 
 export default function SubmoduleLink({ text, route, InnerIcon }: SubmoduleLinkProps) {
   return (
-    <StyleLink Icon={GrNext} route={route} placeTagAtLeft={false}>
-      <h2>{text}</h2>
-      <InnerIcon className="size-10 text-orange-950" />
-    </StyleLink>
+    <Link href={route}>
+      <StandardStyleCard Icon={GrNext} placeTagAtLeft={false}>
+        <h2>{text}</h2>
+        <InnerIcon className="size-10 text-orange-950" />
+      </StandardStyleCard>
+    </Link>
   );
 }
