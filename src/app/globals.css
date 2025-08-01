@@ -15,7 +15,15 @@ h2 {
   @apply text-4xl;
 }
 
-h1, h2, h3 {
+h3 {
+  @apply text-2xl;
+}
+
+h4 {
+  @apply text-base;
+}
+
+h1, h2, h3, h4 {
   font-family: "IM Fell Great Primer", serif;
   font-weight: 400;
   font-style: normal;
