@@ -6,7 +6,7 @@ interface ItemsListProps {
 
 export default function ItemsList({ children }: ItemsListProps) {
   return (
-    <div className="mx-3 my-10">
+    <div className="my-10">
       {children}
     </div>
   )
