@@ -1,5 +1,5 @@
 import { GrNext } from "react-icons/gr"
-import StyleLink from "./styleLink"
+import StyleLink from "../atoms/styleLink"
 import Link from "next/link";
 import StandardStyleCard from "./standardStyleCard";
 

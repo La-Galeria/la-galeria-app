@@ -1,6 +1,6 @@
 import ItemsList from "@/components/atoms/itemsList";
 import PageTitle from "@/components/atoms/pageTitle";
-import SubmoduleLink from "@/components/atoms/submoduleLink";
+import SubmoduleLink from "@/components/molecules/submoduleLink";
 import { HiOutlineSquares2X2 } from "react-icons/hi2";
 import { MdOutlineStore } from "react-icons/md";
 

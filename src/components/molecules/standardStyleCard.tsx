@@ -1,4 +1,4 @@
-import StyleCard, { StyleCardProps } from "./styleCard";
+import StyleCard, { StyleCardProps } from "../atoms/styleCard";
 
 
 export default function StandardStyleCard(props: StyleCardProps) {

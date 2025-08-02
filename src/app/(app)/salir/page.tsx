@@ -1,5 +1,5 @@
 import PageTitle from "@/components/atoms/pageTitle";
-import StandardStyleCard from "@/components/atoms/standardStyleCard";
+import StandardStyleCard from "@/components/molecules/standardStyleCard";
 import { MdLogout } from "react-icons/md";
 
 export default function Page() {
