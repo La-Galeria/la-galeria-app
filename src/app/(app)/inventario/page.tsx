@@ -9,8 +9,8 @@ export default function Page() {
     <>
       <PageTitle>Inventario</PageTitle>
       <ItemsList>
-        <SubmoduleLink route="/inventario" text="Productos" InnerIcon={MdOutlineStore} />
-        <SubmoduleLink route="/inventario" text="Insumos" InnerIcon={HiOutlineSquares2X2} />
+        <SubmoduleLink route="/inventario/productos" text="Productos" InnerIcon={MdOutlineStore} />
+        <SubmoduleLink route="/inventario/insumos" text="Insumos" InnerIcon={HiOutlineSquares2X2} />
       </ItemsList>
     </>
   );
