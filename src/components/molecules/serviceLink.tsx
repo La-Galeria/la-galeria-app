@@ -12,7 +12,7 @@ export default function ServiceLink({ name, price }: ServiceLinkProps) {
     <Link href="/something">
       <StyleCard Icon={FaScissors} placeTagAtLeft>
         <div className="relative h-full">
-          <PriceTag price={price} />
+          <PriceTag price={price} isSmall />
           <div className="flex justify-center items-center h-full">
             <h2>{name}</h2>
           </div>

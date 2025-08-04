@@ -1,13 +1,14 @@
 interface PriceTagProps {
-  price: number
+  price: number,
+  isSmall?: boolean
 }
 
-export default function PriceTag({ price }: PriceTagProps) {
+export default function PriceTag({ price, isSmall = false }: PriceTagProps) {
   const formattedPrice = Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 }).format(price);
   return (
     <div className="absolute top-0 right-0 border-solid border-2 border-orange-950 rounded-bl-3xl rounded-tr-3xl">
       <div className="flex justify-center items-center py-0.5 px-3">
-        <h4 className="underline">{formattedPrice}</h4>
+        <p className={`underline ${isSmall ? "text-base" : "text-lg"}`}>{formattedPrice}</p>
       </div>
     </div>
   );
