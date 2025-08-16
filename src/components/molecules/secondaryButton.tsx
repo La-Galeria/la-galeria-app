@@ -1,14 +1,12 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import ActionButton from "../atoms/actionButton";
 
-interface SecondaryButtonProps {
-  children: ReactNode,
-  type?: "submit" | "reset" | "button" | undefined
+interface SecondaryButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 };
 
-export default function SecondaryButton({ children, type }: SecondaryButtonProps) {
+export default function SecondaryButton({ children, ...props }: SecondaryButtonProps) {
   return (
-    <ActionButton type={type} className="border-orange-950 border-solid border-2">
+    <ActionButton className="border-orange-950 border-solid border-2" {...props}>
       {children}
     </ActionButton>
   );

@@ -1,15 +1,11 @@
-import { ReactNode } from "react"
+import React, { ButtonHTMLAttributes, ReactNode } from "react"
 
-interface ActionButtonProps {
-  className: string,
-  children: ReactNode,
-  type?: "button" | "submit" | "reset" | undefined
-};
+interface ActionButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {};
 
-export default function ActionButton({ className, children, type }: ActionButtonProps) {
+export default function ActionButton({ className, children, ...props }: ActionButtonProps) {
   return (
-    <button type={type} className={"rounded-full px-10 py-2 " + className}>
+    <button className={"rounded-full px-10 py-2 " + className} {...props}>
       {children}
     </button>
-  )
+  );
 }

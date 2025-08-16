@@ -1,14 +1,11 @@
 import { ReactNode } from "react";
 import ActionButton from "../atoms/actionButton";
 
-interface PrimaryButtonProps {
-  children: ReactNode,
-  type?: "submit" | "reset" | "button" | undefined
-};
+interface PrimaryButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> { };
 
-export default function PrimaryButton({ children, type }: PrimaryButtonProps) {
+export default function PrimaryButton({ children, ...props }: PrimaryButtonProps) {
   return (
-    <ActionButton type={type} className="bg-orange-950 text-slate-50">
+    <ActionButton className="bg-orange-950 text-slate-50" {...props}>
       {children}
     </ActionButton>
   );
