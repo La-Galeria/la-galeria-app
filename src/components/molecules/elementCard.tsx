@@ -2,6 +2,7 @@ import { MouseEventHandler } from "react";
 import PriceTag from "../atoms/priceTag";
 import PrimaryButton from "./primaryButton";
 import SecondaryButton from "./secondaryButton";
+import Card from "../atoms/card";
 
 interface ElementCardProps {
   name: string,
@@ -14,7 +15,7 @@ export default function ElementCard({ name, description, price, onDelete }: Elem
   const descriptionToShow = description ?? "Sin descripción";
 
   return (
-    <div className="bg-slate-50/75 rounded-3xl relative p-8 my-14 h-9/12">
+    <Card>
       {price && <PriceTag price={price} />}
       <div className="flex flex-col justify-between items-center h-full">
         <h2>{name}</h2>
@@ -32,6 +33,6 @@ export default function ElementCard({ name, description, price, onDelete }: Elem
           </PrimaryButton>
         </div>
       </div>
-    </div>
+    </Card>
   );
 }
