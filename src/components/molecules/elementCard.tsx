@@ -17,7 +17,7 @@ export default function ElementCard({ name, description, price, onDelete }: Elem
   return (
     <Card>
       {price && <PriceTag price={price} />}
-      <div className="flex flex-col justify-between items-center h-full">
+      <div className="flex flex-col justify-between items-center h-100">
         <h2>{name}</h2>
         <p className="text-center text-lg apply-italic">{descriptionToShow}</p>
         <div className="flex flex-col justify-center gap-3">
