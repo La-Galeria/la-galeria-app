@@ -6,7 +6,7 @@ interface CardProps {
 
 export default function Card({ children }: CardProps) {
   return (
-    <div className="bg-slate-50/75 rounded-3xl relative p-8 my-14 h-9/12">
+    <div className="bg-slate-50/75 rounded-3xl relative py-8 px-2 my-7 min-h-9/12 h-max">
       {children}
     </div>
   );
