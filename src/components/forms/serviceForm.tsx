@@ -8,9 +8,9 @@ import PriceField from "../molecules/priceField";
 export default function ServiceForm({ entity, action }: GenericFormProps<Servicio>) {
   return (
     <FormWrapper action={action}>
-      <InputField label="Nombre" />
-      <InputField label="Descripción" type="textarea" />
-      <PriceField label="Precio" />
+      <InputField label="Nombre" name="nombre" />
+      <InputField label="Descripción" type="textarea" name="descripcion" />
+      <PriceField label="Precio" name="precio" />
     </FormWrapper>
   );
 }
