@@ -1,3 +1,4 @@
+"use client";
 import { formatPrice, unformatPrice } from "@/utils/utils";
 import { ChangeEvent, useState } from "react";
 import InputField from "../atoms/InputField";
@@ -24,7 +25,7 @@ export default function PriceField({ initialValue, label }: PriceFieldProps) {
   return (
     <>
       <InputField label={label} onChange={handleChange} value={displayValue} />
-      <input hidden value={value} />
+      <input hidden value={value} readOnly />
     </>
   );
 }
