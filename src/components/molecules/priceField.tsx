@@ -6,9 +6,10 @@ import InputField from "../atoms/InputField";
 interface PriceFieldProps {
   initialValue?: number;
   label: string;
+  name: string;
 }
 
-export default function PriceField({ initialValue, label }: PriceFieldProps) {
+export default function PriceField({ initialValue, label, name }: PriceFieldProps) {
   const [value, setValue] = useState(initialValue ?? 0);
 
   function handleChange(event: ChangeEvent<HTMLInputElement>): void {
@@ -25,7 +26,7 @@ export default function PriceField({ initialValue, label }: PriceFieldProps) {
   return (
     <>
       <InputField label={label} onChange={handleChange} value={displayValue} />
-      <input hidden value={value} readOnly />
+      <input hidden value={value} readOnly name={name} />
     </>
   );
 }
