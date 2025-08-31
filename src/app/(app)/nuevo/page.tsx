@@ -16,7 +16,7 @@ export default function Page() {
         <SubmoduleLink route="/nuevo/gasto" text="Gasto" InnerIcon={RiBillLine} />
         <SubmoduleLink route="/nuevo/servicio" text="Servicio" InnerIcon={FaScissors} />
         <SubmoduleLink route="/nuevo/producto" text="Producto" InnerIcon={MdOutlineStore} />
-        <SubmoduleLink route="/inventario/insumos" text="Insumo" InnerIcon={HiOutlineSquares2X2} />
+        <SubmoduleLink route="/nuevo/insumo" text="Insumo" InnerIcon={HiOutlineSquares2X2} />
       </ItemsList>
     </>
   );
