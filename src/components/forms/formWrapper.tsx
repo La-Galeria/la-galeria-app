@@ -10,9 +10,12 @@ interface FormWrapperProps {
 
 export default function FormWrapper({ action, children }: FormWrapperProps) {
   return (
-    <Form action={action} className="w-full flex flex-col items-center gap-1 px-4">
-      {children}
-      <PrimaryButton type="submit">Guardar</PrimaryButton>
+    <Form
+      action={action}
+      className="w-full flex flex-col items-center justify-between gap-1 px-4 h-100"
+    >
+      <div className="w-full my-5">{children}</div>
+      <PrimaryButton type="submit"><h3>Guardar</h3></PrimaryButton>
     </Form>
   );
 }
