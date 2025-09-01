@@ -14,11 +14,7 @@ export default async function Page() {
       {services.length > 0 ? (
         <ItemsList>
           {services.map((service) => (
-            <ServiceLink
-              name={service.nombre}
-              price={service.precio}
-              key={service.id}
-            />
+            <ServiceLink service={service} />
           ))}
         </ItemsList>
       ) : (

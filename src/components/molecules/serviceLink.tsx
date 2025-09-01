@@ -2,19 +2,19 @@ import Link from "next/link";
 import StyleCard from "../atoms/styleCard";
 import { FaScissors } from "react-icons/fa6";
 import PriceTag from "../atoms/priceTag";
+import { Servicio } from "@/generated/prisma";
 
 interface ServiceLinkProps {
-  name: string,
-  price: number,
+  service: Servicio
 }
-export default function ServiceLink({ name, price }: ServiceLinkProps) {
+export default function ServiceLink({ service }: ServiceLinkProps) {
   return (
-    <Link href="/something">
+    <Link href={`/servicios/${service.id}`}>
       <StyleCard Icon={FaScissors} placeTagAtLeft>
         <div className="relative h-full">
-          <PriceTag price={price} isSmall />
+          <PriceTag price={service.precio} isSmall />
           <div className="flex justify-center items-center h-full">
-            <h2>{name}</h2>
+            <h2>{service.nombre}</h2>
           </div>
         </div>
       </StyleCard>
