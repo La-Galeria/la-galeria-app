@@ -1,11 +1,23 @@
 import EmptyView from "@/components/atoms/emptyView";
+import ItemsList from "@/components/atoms/itemsList";
 import PageTitle from "@/components/atoms/pageTitle";
+import AssetLink from "@/components/molecules/assetLink";
+import assetsRepo from "@/repositories/assetsRepository";
 
-export default function Page() {
+export default async function Page() {
+  const assets = await assetsRepo.getAll();
   return (
     <>
       <PageTitle>Insumos</PageTitle>
-      <EmptyView keyword="insumos"></EmptyView>
+      {assets.length > 0 ? (
+        <ItemsList>
+          {assets.map((asset) => (
+            <AssetLink asset={asset} />
+          ))}
+        </ItemsList>
+      ) : (
+        <EmptyView keyword="insumos" createLink="nuevo/insumo"></EmptyView>
+      )}
     </>
-  )
+  );
 }

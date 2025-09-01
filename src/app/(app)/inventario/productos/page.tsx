@@ -1,11 +1,23 @@
 import EmptyView from "@/components/atoms/emptyView";
+import ItemsList from "@/components/atoms/itemsList";
 import PageTitle from "@/components/atoms/pageTitle";
+import ProductLink from "@/components/molecules/productLink";
+import productsRepo from "@/repositories/productsRepository";
 
-export default function Page() {
+export default async function Page() {
+  const products = await productsRepo.getAll();
   return (
     <>
       <PageTitle>Productos</PageTitle>
-      <EmptyView keyword="productos"></EmptyView>
+      {products.length > 0 ? (
+        <ItemsList>
+          {products.map(product => (
+            <ProductLink product={product} />
+          ))}
+        </ItemsList>
+      ) : (
+        <EmptyView keyword="productos" createLink="nuevo/producto"></EmptyView>
+      )}
     </>
   )
 }
