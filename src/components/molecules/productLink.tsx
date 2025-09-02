@@ -13,6 +13,7 @@ export default function ProductLink({ product }: ProductLinkProps) {
       name={product.nombre}
       namespace="inventario/productos"
       Icon={MdOutlineStore}
+      price={product.precioVenta}
     />
   );
 }
