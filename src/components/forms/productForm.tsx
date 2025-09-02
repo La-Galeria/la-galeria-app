@@ -7,9 +7,9 @@ import PriceField from "../molecules/priceField";
 export default function ProductForm({ entity, action }: GenericFormProps<Producto>) {
   return (
   <FormWrapper action={action}>
-    <InputField label="Nombre" />
-    <InputField label="Cantidad" type="number" />
-    <PriceField label="Precio" />
+    <InputField label="Nombre" name="nombre" />
+    <InputField label="Cantidad" type="number" name="cantidad" />
+    <PriceField label="Precio venta" name="precio-venta" />
   </FormWrapper>
   );
 }
