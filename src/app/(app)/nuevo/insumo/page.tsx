@@ -1,4 +1,4 @@
-"use client";
+import createAsset from "@/actions/assetActions/createAsset";
 import AssetForm from "@/components/forms/assetForm";
 import ProductForm from "@/components/forms/productForm";
 import FormCard from "@/components/molecules/formCard";
@@ -6,7 +6,7 @@ import FormCard from "@/components/molecules/formCard";
 export default function Page() {
   return (
     <FormCard title="Nuevo Insumo">
-      <AssetForm action={() => alert("Done.")} />
+      <AssetForm action={createAsset} />
     </FormCard>
   );
 }
