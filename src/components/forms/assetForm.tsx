@@ -7,8 +7,8 @@ import PriceField from "../molecules/priceField";
 export default function AssetForm({ entity, action }: GenericFormProps<Insumo>) {
   return (
   <FormWrapper action={action}>
-    <InputField label="Nombre" />
-    <InputField label="Cantidad" type="number" />
+    <InputField label="Nombre" name="nombre" />
+    <InputField label="Cantidad" type="number" name="cantidad" />
   </FormWrapper>
   );
 }
