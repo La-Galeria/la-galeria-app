@@ -1,5 +1,5 @@
 export default interface ProductDTO {
   nombre: string,
-  cantidadInicial: number,
+  cantidad: number,
   precioVenta: number,
 }
