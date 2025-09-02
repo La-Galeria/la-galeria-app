@@ -12,11 +12,11 @@ export default async function Page() {
       {assets.length > 0 ? (
         <ItemsList>
           {assets.map((asset) => (
-            <AssetLink asset={asset} />
+            <AssetLink asset={asset} key={asset.id} />
           ))}
         </ItemsList>
       ) : (
-        <EmptyView keyword="insumos" createLink="nuevo/insumo"></EmptyView>
+        <EmptyView keyword="insumos" createLink="/nuevo/insumo"></EmptyView>
       )}
     </>
   );

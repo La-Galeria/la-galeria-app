@@ -12,11 +12,11 @@ export default async function Page() {
       {products.length > 0 ? (
         <ItemsList>
           {products.map(product => (
-            <ProductLink product={product} />
+            <ProductLink product={product} key={product.id}/>
           ))}
         </ItemsList>
       ) : (
-        <EmptyView keyword="productos" createLink="nuevo/producto"></EmptyView>
+        <EmptyView keyword="productos" createLink="/nuevo/producto"></EmptyView>
       )}
     </>
   )
