@@ -16,7 +16,7 @@ datasource db {
 model Insumo {
   id Int @id @default(autoincrement())
   nombre String
-  cantidadInicial Int
+  cantidad Int
   gastos InsumoGastado[]
   compras CompraInsumo[]
 }
