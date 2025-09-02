@@ -17,7 +17,7 @@ export default function ElementLink({ id, name, price, namespace, Icon }: Elemen
         <div className="relative h-full">
           {price && <PriceTag price={price} isSmall />}
           <div className="flex justify-center items-center h-full">
-            <h2>{name}</h2>
+            <h3 className="text-center">{name}</h3>
           </div>
         </div>
       </StyleCard>
