@@ -7,9 +7,9 @@ import PriceField from "../molecules/priceField";
 export default function ExpenseForm({ entity, action }: GenericFormProps<Pago>) {
   return (
   <FormWrapper action={action}>
-    <InputField label="Fecha" type="date" />
-    <InputField label="Descripción" type="textarea" />
-    <PriceField label="Valor" />
+    <InputField label="Fecha" type="date" name="fecha" />
+    <InputField label="Descripción" type="textarea" name="descripcion" />
+    <PriceField label="Valor" name="valor"/>
   </FormWrapper>
   );
 }
