@@ -1,12 +1,12 @@
 import { Pago } from "@/generated/prisma";
 import BaseController from "./baseController";
 import IController from "@/interfaces/IController";
-import PaymentDTO from "@/dtos/paymentDto";
-import paymentsRepo from "@/repositories/paymentsRepository";
+import ExpenseDTO from "@/dtos/expenseDto";
+import expensesRepo from "@/repositories/expensesRepository";
 
-class PaymentController extends BaseController<Pago, PaymentDTO> implements IController {
+class PaymentController extends BaseController<Pago, ExpenseDTO> implements IController {
   constructor() { 
-    super(paymentsRepo);
+    super(expensesRepo);
   }
 }
 
