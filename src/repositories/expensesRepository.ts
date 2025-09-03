@@ -1,14 +1,14 @@
-import PaymentDTO from "@/dtos/paymentDto";
+import ExpenseDTO from "@/dtos/expenseDto";
 import { Pago } from "@/generated/prisma";
 import IRepository from "@/interfaces/IRepository";
 import prisma from "@/lib/prisma";
 import BaseRepository from "./baseRepository";
 
-class PaymentsRepo extends BaseRepository<Pago, PaymentDTO> implements IRepository<Pago, PaymentDTO> {
+class ExpensesRepo extends BaseRepository<Pago, ExpenseDTO> implements IRepository<Pago, ExpenseDTO> {
   constructor() {
     super(prisma.pago);
   }
 };
 
-const paymentsRepo = new PaymentsRepo();
-export default paymentsRepo;
+const expensesRepo = new ExpensesRepo();
+export default expensesRepo;

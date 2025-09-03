@@ -1,4 +1,4 @@
-export default interface PaymentDTO {
+export default interface ExpenseDTO {
   fecha: Date,
   descripcion: string,
   valor: number
