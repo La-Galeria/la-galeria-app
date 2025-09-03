@@ -1,12 +1,11 @@
-"use client";
-import AssetForm from "@/components/forms/assetForm";
+import createExpense from "@/actions/expenseActions/createExpense";
 import ExpenseForm from "@/components/forms/expenseForm";
 import FormCard from "@/components/molecules/formCard";
 
 export default function Page() {
   return (
     <FormCard title="Nuevo Gasto">
-      <ExpenseForm action={() => alert("Done.")} />
+      <ExpenseForm action={createExpense} />
     </FormCard>
   );
 }
