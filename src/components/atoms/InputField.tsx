@@ -9,7 +9,7 @@ export default function InputField({ label, ...props }: InputFieldProps) {
       <label>
         <h4>{label}</h4>
         {props.type == "textarea" ? (
-          <textarea className={className} rows={4}>
+          <textarea className={className} rows={4} name={props.name}>
             {props.defaultValue}
           </textarea>
         ) : (
