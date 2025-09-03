@@ -35,3 +35,7 @@ h1, h2, h3, h4, p, input, textarea {
   font-weight: 400;
   font-style: italic;
 }
+
+input, textarea, select {
+  @apply border-solid border-orange-950 border rounded-2xl text-orange-950 text-lg p-2 my-0 w-full;
+}
