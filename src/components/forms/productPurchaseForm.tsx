@@ -18,7 +18,7 @@ export default async function ProductPurchaseForm({ entity, action }: GenericFor
         <option value={product.id}>{product.nombre}</option>
       ))}
     </DropDownField>
-    <InputField label="cantidad" type="number" name="cantidad" />
+    <InputField label="Cantidad" type="number" name="cantidad" />
     <PriceField label="Valor total" name="valor_total"/>
   </FormWrapper>
   );
