@@ -62,6 +62,7 @@ model VentaProducto {
   producto Producto @relation(fields: [idProducto], references: [id])
   idProducto Int
   cantidad Int
+  valor Int
 }
 
 model Servicio {
@@ -78,6 +79,7 @@ model VentaServicio {
   servicio Servicio @relation(fields: [idServicio], references: [id])
   idServicio Int
   cantidad Int
+  valor Int
 }
 
 model Pago {
