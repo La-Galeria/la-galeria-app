@@ -7,7 +7,6 @@ import prisma from "@/lib/prisma";
 import servicesRepo from "@/repositories/servicesRepository";
 
 export default async function Page() {
-  // const services = await prisma.servicio.findMany();
   const services = await servicesRepo.getAll();
   console.log(services);
   return (
