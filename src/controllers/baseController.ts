@@ -12,7 +12,7 @@ export default abstract class BaseController<TEntity, TDto> implements IControll
   }
 
   public async add(formData: FormData): Promise<NextResponse> {
-    const data: TDto = this.fillData(formData);
+    const data: TDto = await this.fillData(formData);
     const newEntity = await this.repo.add(data);
     return this.okResponse(newEntity);
   }
@@ -62,5 +62,5 @@ export default abstract class BaseController<TEntity, TDto> implements IControll
     return NextResponse.json(data);
   }
 
-  protected abstract fillData(formData: FormData): TDto;
+  protected abstract fillData(formData: FormData): Promise<TDto>;
 }
