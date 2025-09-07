@@ -2,7 +2,6 @@ import { CompraProducto } from "@/generated/prisma";
 import GenericFormProps from "@/interfaces/genericFormProps";
 import FormWrapper from "./formWrapper";
 import InputField from "../atoms/InputField";
-import PriceField from "../molecules/priceField";
 import DropDownField from "../atoms/dropDownField";
 import productsRepo from "@/repositories/productsRepository";
 
