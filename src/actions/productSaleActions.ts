@@ -1,12 +1,8 @@
 "use server";
 
 import productSaleController from "@/controllers/productSaleController";
-import ProductSaleDTO from "@/dtos/productSaleDto";
-import productSalesRepo from "@/repositories/productSalesRepository";
-import productsRepo from "@/repositories/productsRepository";
-import { notFound, redirect } from "next/navigation";
+import { create } from "./generic/genericActions";
 
 export default async function createProductSale(formData: FormData) {
-  await productSaleController.add(formData);
-  redirect("/nuevo/compra");
+  await create(formData, productSaleController, "/");
 }
