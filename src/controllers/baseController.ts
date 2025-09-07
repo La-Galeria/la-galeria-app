@@ -1,6 +1,7 @@
 import IController from "@/interfaces/IController";
 import IRepository from "@/interfaces/IRepository";
 import Params from "@/interfaces/routeParams";
+import { redirect } from "next/navigation";
 import { NextResponse } from "next/server";
 
 export default abstract class BaseController<TEntity, TDto> implements IController {
@@ -10,8 +11,8 @@ export default abstract class BaseController<TEntity, TDto> implements IControll
     this.repo = repo;
   }
 
-  public async add(request: Request): Promise<NextResponse> {
-    const data: TDto = await request.json();
+  public async add(formData: FormData): Promise<NextResponse> {
+    const data: TDto = this.fillData(formData);
     const newEntity = await this.repo.add(data);
     return this.okResponse(newEntity);
   }
@@ -60,4 +61,6 @@ export default abstract class BaseController<TEntity, TDto> implements IControll
   private okResponse(data: unknown) {
     return NextResponse.json(data);
   }
+
+  protected abstract fillData(formData: FormData): TDto;
 }

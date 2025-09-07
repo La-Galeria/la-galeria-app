@@ -5,6 +5,14 @@ import IController from "@/interfaces/IController";
 import servicesRepo from "@/repositories/servicesRepository";
 
 class ServiceController extends BaseController<Servicio, ServiceDTO> implements IController {
+  protected fillData(formData: FormData): ServiceDTO {
+    return {
+      nombre: String(formData.get("nombre")),
+      descripcion: String(formData.get("descripcion")),
+      precio: Number(formData.get("precio")),
+    };
+  }
+
   constructor() { 
     super(servicesRepo);
   }
