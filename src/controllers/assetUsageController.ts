@@ -1,5 +1,5 @@
 import { InsumoGastado } from "@/generated/prisma";
-import BaseController from "./baseController";
+import BaseController from "./base/baseController";
 import IController from "@/interfaces/IController";
 import AssetUsageDTO from "@/dtos/assetUsageDto";
 import assetUsagesRepo from "@/repositories/assetUsagesRepository";

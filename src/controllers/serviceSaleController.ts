@@ -1,5 +1,5 @@
 import { VentaServicio } from "@/generated/prisma";
-import BaseController from "./baseController";
+import BaseController from "./base/baseController";
 import IController from "@/interfaces/IController";
 import ServiceSaleDTO from "@/dtos/serviceSaleDto";
 import serviceSalesRepo from "@/repositories/serviceSalesRepository";

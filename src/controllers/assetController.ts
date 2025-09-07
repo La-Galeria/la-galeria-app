@@ -1,5 +1,5 @@
 import { Insumo } from "@/generated/prisma";
-import BaseController from "./baseController";
+import BaseController from "./base/baseController";
 import IController from "@/interfaces/IController";
 import AssetDTO from "@/dtos/assetDto";
 import assetsRepo from "@/repositories/assetsRepository";

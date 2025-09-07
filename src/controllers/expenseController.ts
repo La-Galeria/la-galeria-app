@@ -1,5 +1,5 @@
 import { Pago } from "@/generated/prisma";
-import BaseController from "./baseController";
+import BaseController from "./base/baseController";
 import IController from "@/interfaces/IController";
 import ExpenseDTO from "@/dtos/expenseDto";
 import expensesRepo from "@/repositories/expensesRepository";

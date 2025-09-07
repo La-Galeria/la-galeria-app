@@ -1,5 +1,5 @@
 import { VentaProducto } from "@/generated/prisma";
-import BaseController from "./baseController";
+import BaseController from "./base/baseController";
 import IController from "@/interfaces/IController";
 import ProductSaleDTO from "@/dtos/productSaleDto";
 import productSalesRepo from "@/repositories/productSalesRepository";
