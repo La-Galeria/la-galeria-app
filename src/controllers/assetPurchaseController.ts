@@ -1,14 +1,19 @@
-import { CompraInsumo } from "@/generated/prisma";
-import BaseController from "./base/baseController";
+import { CompraInsumo, Insumo } from "@/generated/prisma";
 import IController from "@/interfaces/IController";
 import AssetPurchaseDTO from "@/dtos/assetPurchaseDto";
 import assetPurchasesRepo from "@/repositories/assetPurchasesRepository";
 import assetsRepo from "@/repositories/assetsRepository";
+import BaseComplexController from "./base/baseComplexController";
+import AssetDTO from "@/dtos/assetDto";
 
 class AssetPurchaseController
-  extends BaseController<CompraInsumo, AssetPurchaseDTO>
+  extends BaseComplexController<CompraInsumo, AssetPurchaseDTO, Insumo, AssetDTO>
   implements IController
 {
+  protected getKey(): string {
+    return "id_insumo";
+  }
+
   protected async fillData(formData: FormData): Promise<AssetPurchaseDTO> {
     return {
       fecha: new Date(String(formData.get("fecha"))),
@@ -18,17 +23,9 @@ class AssetPurchaseController
     };
   }
   
-  protected async validate(formData: FormData): Promise<boolean> {
-    const assetId = Number(formData.get("id_insumo"));
-    const asset = await assetsRepo.get(assetId);
-    if (!asset)
-      return false;
-
-    return true;
-  }
 
   constructor() {
-    super(assetPurchasesRepo);
+    super(assetPurchasesRepo, assetsRepo);
   }
 }
 

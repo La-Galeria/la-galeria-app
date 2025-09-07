@@ -1,34 +1,33 @@
-import { VentaServicio } from "@/generated/prisma";
-import BaseController from "./base/baseController";
+import { Servicio, VentaServicio } from "@/generated/prisma";
 import IController from "@/interfaces/IController";
 import ServiceSaleDTO from "@/dtos/serviceSaleDto";
 import serviceSalesRepo from "@/repositories/serviceSalesRepository";
 import servicesRepo from "@/repositories/servicesRepository";
-import { notFound } from "next/navigation";
+import BaseComplexController from "./base/baseComplexController";
+import { ServiceDTO } from "@/dtos/serviceDto";
 
 class ServiceSaleController
-  extends BaseController<VentaServicio, ServiceSaleDTO>
+  extends BaseComplexController<VentaServicio, ServiceSaleDTO, Servicio, ServiceDTO>
   implements IController
 {
-  protected async fillData(formData: FormData): Promise<ServiceSaleDTO> {
-    const serviceId = Number(formData.get("id_servicio"));
-    const service = await servicesRepo.get(serviceId);
-    if (!service) {
-      return notFound();
-    }
+  protected getKey(): string {
+    return "id_servicio";
+  }
 
+  protected async fillData(formData: FormData): Promise<ServiceSaleDTO> {
+    const service = await this.getDependency(formData);
     const amount = Number(formData.get("cantidad"));
 
     const sale: ServiceSaleDTO = {
       fecha: new Date(String(formData.get("fecha"))),
       cantidad: amount,
-      idServicio: serviceId,
-      valor: service?.precio,
+      idServicio: service!.id,
+      valor: service!.precio,
     };
     return sale;
   }
   constructor() {
-    super(serviceSalesRepo);
+    super(serviceSalesRepo, servicesRepo);
   }
 }
 
