@@ -1,4 +1,4 @@
-import paymentController from "@/controllers/paymentController";
+import paymentController from "@/controllers/expenseController";
 import Params from "@/interfaces/routeParams";
 
 const controller = paymentController;
