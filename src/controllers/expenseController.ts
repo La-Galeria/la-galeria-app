@@ -20,5 +20,5 @@ class ExpenseController
   }
 }
 
-const paymentController = new ExpenseController();
-export default paymentController;
+const expenseController = new ExpenseController();
+export default expenseController;

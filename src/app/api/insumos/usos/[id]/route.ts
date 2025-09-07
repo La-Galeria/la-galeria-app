@@ -1,7 +1,7 @@
-import paymentController from "@/controllers/expenseController";
+import expenseController from "@/controllers/expenseController";
 import Params from "@/interfaces/routeParams";
 
-const controller = paymentController;
+const controller = expenseController;
 export async function GET(request: Request, { params }: Params) {
   return await controller.get({ params });
 }
