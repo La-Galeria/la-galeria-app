@@ -1,4 +1,4 @@
-import createProductSale from "@/actions/productSaleActions/createProductSale";
+import createProductSale from "@/actions/productSaleActions";
 import ProductSaleForm from "@/components/forms/productSaleForm";
 import FormCard from "@/components/molecules/formCard";
 

@@ -1,4 +1,4 @@
-import createAssetPurchase from "@/actions/assetPurchaseActions/createAssetPurchase";
+import createAssetPurchase from "@/actions/assetPurchaseActions";
 import AssetPurchaseForm from "@/components/forms/assetPurchaseForm";
 import FormCard from "@/components/molecules/formCard";
 

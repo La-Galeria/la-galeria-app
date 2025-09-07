@@ -1,4 +1,4 @@
-import createExpense from "@/actions/expenseActions/createExpense";
+import createExpense from "@/actions/expenseActions";
 import ExpenseForm from "@/components/forms/expenseForm";
 import FormCard from "@/components/molecules/formCard";
 

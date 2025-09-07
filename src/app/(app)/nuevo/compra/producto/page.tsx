@@ -1,4 +1,4 @@
-import createProductPurchase from "@/actions/productPurchaseActions/createProductPurchase";
+import createProductPurchase from "@/actions/productPurchaseActions";
 import ProductPurchaseForm from "@/components/forms/productPurchaseForm";
 import FormCard from "@/components/molecules/formCard";
 
