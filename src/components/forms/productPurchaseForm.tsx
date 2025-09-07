@@ -15,7 +15,7 @@ export default async function ProductPurchaseForm({ entity, action }: GenericFor
     <DropDownField label="Producto" name="id_producto">
       <option value="0">- Seleccione -</option>
       {products.map(product => (
-        <option value={product.id}>{product.nombre}</option>
+        <option value={product.id} key={product.id}>{product.nombre}</option>
       ))}
     </DropDownField>
     <InputField label="Cantidad" type="number" name="cantidad" />

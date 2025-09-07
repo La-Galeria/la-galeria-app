@@ -15,7 +15,7 @@ export default async function AssetPurchaseForm({ entity, action }: GenericFormP
     <DropDownField label="Insumo" name="id_insumo">
       <option value="0">- Seleccione -</option>
       {assets.map(asset => (
-        <option value={asset.id}>{asset.nombre}</option>
+        <option value={asset.id} key={asset.id}>{asset.nombre}</option>
       ))}
     </DropDownField>
     <InputField label="Cantidad" type="number" name="cantidad" />
