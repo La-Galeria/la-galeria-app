@@ -45,8 +45,8 @@ export default abstract class BaseController<TEntity extends object, TDto> imple
     return this.okResponse(updatedEntity);
   }
 
-  public async delete({ params }: Params): Promise<ResponseDTO> {
-    const id = this.getIdFromParams({ params });
+  public async delete(formData: FormData): Promise<ResponseDTO> {
+    const id = this.getIdFromFormData(formData);
     const deletedEntity = await this.repo.remove(id);
     if (!deletedEntity)
       return this.notFoundResponse();
@@ -56,6 +56,10 @@ export default abstract class BaseController<TEntity extends object, TDto> imple
 
   private getIdFromParams({ params }: Params) {
     return Number(params.id);
+  }
+
+  private getIdFromFormData(formData: FormData) {
+    return Number(formData.get("id"));
   }
 
   private notFoundResponse(): ResponseDTO {

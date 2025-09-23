@@ -6,5 +6,5 @@ export default interface IController {
   get({ params }: Params): Promise<ResponseDTO>;
   getAll(): Promise<ResponseDTO>;
   update({ params }: Params, request: Request): Promise<ResponseDTO>;
-  delete({ params }: Params): Promise<ResponseDTO>;
+  delete(formData: FormData): Promise<ResponseDTO>;
 }
