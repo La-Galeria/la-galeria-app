@@ -1,14 +1,15 @@
 "use client";
-import { useState } from "react";
+import { MouseEventHandler, useState } from "react";
 import ElementCard from "./elementCard"
 import DeletePopUpView from "./deletePopUpView";
 
 interface ElementViewProps {
   name: string,
   description?: string | null,
-  price?: number | undefined
+  price?: number | undefined,
+  deleteHandler: (formData: FormData) => void
 }
-export default function ElementView({ name, description, price }: ElementViewProps) {
+export default function ElementView({ name, description, price, deleteHandler }: ElementViewProps) {
   const [shouldShowDeletePopUp, setShouldShowDeletePopUp] = useState(false);
 
   function showDeletePopUp() {
@@ -24,7 +25,7 @@ export default function ElementView({ name, description, price }: ElementViewPro
       <ElementCard name={name} description={description} price={price} onDelete={showDeletePopUp} />
 
       {shouldShowDeletePopUp &&
-      <DeletePopUpView onCancel={hideDeletePopUp} />}
+      <DeletePopUpView onCancel={hideDeletePopUp} onDelete={deleteHandler} />}
     </>
   );
 }
