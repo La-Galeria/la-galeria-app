@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# La Galería App
+This is the repo for the 'La Galería App'.
 
-## Getting Started
+## Generalities
+This project is an inventory, prices and accountability manager for the famous and prodigious bakery 'La Galería', based in Cartagena, Colombia. It is intended to be used in a web browser from a mobile device. The idea is to keep simple authentication strategies, for the only user that needs to access the app will be the administrator.
 
-First, run the development server:
+## Specifications
+The project is made with Next.JS, using TypeScript as the language. In general, the tools are described as follows:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* **TypeScript** as language.
+* **PNPM** for package managing.
+* **Prisma** as the ORM.
+* **SQLite** for the database in development, intended to use **Postgres** in production.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**IMPORTANT**: Please do not use **by any means** NPM for package installing and updating. This could break the package versions flow and mess with inner running scripts; not to mention all of the security concerns that are currently associated to NPM.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Structure
+The project follows a Clean Architecture-ish architecture, in which the code is organized in:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Repositories: these are responsible of retrieving data from the database and applying the required changes to it.
+- DTOs: interfaces intended to model the structure of the data that is received and sent by the repositories.
+- Interfaces: miscellaneous interfaces required in certain parts of the code that unify data structures.
+- Actions: functions that group features created in the repositories, so that they can be called as form submit actions in React pages and components.
+- Utils: directory conformed by several useful functions that accomplish specific logic and shall be called in certain parts of the code.
+- App: where the routes, pages and layouts lie. The inner directory structure defines the URL routes structure, taking the directory names as slugs of the corresponding route of the page in question. This obeys to the NextJS intended behavior, which can be checked in (https://nextjs.org/docs/app/getting-started/project-structure#nested-routes)[this link].
+- Components: useful React components that divide responsibilities and keep the code organized and scale-friendly.
+- Hooks: useful React custom hooks, that can be called from several components and therefore allow logic placement in a more organized manner, keeping the code scale-friendly.
