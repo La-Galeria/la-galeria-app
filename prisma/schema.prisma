@@ -13,76 +13,61 @@ datasource db {
 
 // Models
 
-model Insumo {
+model Insumos {
   id Int @id @default(autoincrement())
   nombre String
   cantidad Int
-  gastos InsumoGastado[]
-  compras CompraInsumo[]
+
+
+  gastosInsumos GastoInsumos[]
+  compras Compras[]
+
 }
 
-model InsumoGastado {
+model GastoDeInsumos {
   id Int @id @default(autoincrement())
   fecha DateTime
-  insumo Insumo @relation(fields: [idInsumo], references: [id])
+  insumo Insumo @relation(fields: [idInsumos], references: [id])
   idInsumo Int
   cantidad Int
 }
 
-model CompraInsumo {
+model Compras {
   id Int @id @default(autoincrement())
   fecha DateTime
-  insumo Insumo @relation(fields: [idInsumo], references: [id])
+  insumo Insumo @relation(fields: [idInsumos], references: [id])
   idInsumo Int
   cantidad Int
   valorTotal Int
 }
 
-model Producto {
+model Productos {
   id Int @id @default(autoincrement())
   nombre String
   cantidad Int
-  precioVenta Int
-  compras CompraProducto[]
-  ventas VentaProducto[]
-}
-
-model CompraProducto {
-  id Int @id @default(autoincrement())
-  fecha DateTime
-  producto Producto @relation(fields: [idProducto], references: [id])
-  idProducto Int
-  cantidad Int
-  valorTotal Int
-}
-
-model VentaProducto {
-  id Int @id @default(autoincrement())
-  fecha DateTime
-  producto Producto @relation(fields: [idProducto], references: [id])
-  idProducto Int
-  cantidad Int
-  valor Int
-}
-
-model Servicio {
-  id Int @id @default(autoincrement())
-  nombre String
-  descripcion String?
   precio Int
-  ventas VentaServicio[]
+  compras CreacionesDeProductos[]
+  ventas Ventas[]
 }
 
-model VentaServicio {
+model CreacionesDeProductos {
   id Int @id @default(autoincrement())
   fecha DateTime
-  servicio Servicio @relation(fields: [idServicio], references: [id])
-  idServicio Int
+  producto Producto @relation(fields: [idProductos], references: [id])
+  idProductos Int
   cantidad Int
-  valor Int
 }
 
-model Pago {
+model Ventas {
+  id Int @id @default(autoincrement())
+  fecha DateTime
+  producto Producto @relation(fields: [idProductos], references: [id])
+  idProductos Int
+  cantidad Int
+  valorVenta Int
+}
+
+model Obligaciones {
   id Int @id @default(autoincrement())
   fecha DateTime
   descripcion String
