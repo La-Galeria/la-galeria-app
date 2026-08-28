@@ -7,7 +7,7 @@ import { FiScissors } from "react-icons/fi";
 
 export default function NavBar() {
   return (
-    <nav className="bg-lime-950 fixed bottom-0 flex justify-between w-full z-10">
+    <nav className="bg-primary fixed bottom-0 flex justify-between w-full z-10">
       <NavItem route="/" Icon={GoHome} />
       <NavItem route="/inventario" Icon={MdOutlineInventory} />
       <NavItem route="/nuevo" Icon={FaPlus} />

@@ -11,7 +11,7 @@ export default function DeletePopUp({ onCancel, onDelete }: DeletePopUpProps) {
   const { id } = useParams();
 
   return (
-    <div className="rounded-3xl bg-slate-50/85 flex flex-col justify-between items-center p-4 w-max h-1/4">
+    <div className="rounded-3xl bg-primary flex flex-col justify-between items-center p-4 w-max h-1/4 text-secondary">
       <h3 className="text-center">¿Seguro?</h3>
       <div className="flex justify-center gap-1">
         <SecondaryButton onClick={onCancel}>

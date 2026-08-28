@@ -6,7 +6,7 @@ interface SecondaryButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElem
 
 export default function SecondaryButton({ children, ...props }: SecondaryButtonProps) {
   return (
-    <ActionButton className="border-orange-950 border-solid border-2" {...props}>
+    <ActionButton className="border-secondary text-secondary border-solid border-2" {...props}>
       {children}
     </ActionButton>
   );

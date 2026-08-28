@@ -5,7 +5,7 @@ interface PrimaryButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 
 export default function PrimaryButton({ children, ...props }: PrimaryButtonProps) {
   return (
-    <ActionButton className="bg-orange-950 text-slate-50" {...props}>
+    <ActionButton className="bg-secondary text-primary" {...props}>
       {children}
     </ActionButton>
   );
