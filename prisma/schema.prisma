@@ -19,7 +19,7 @@ model Insumo {
   cantidad Int
 
 
-  gastosInsumo GastoInsumo[]
+  gastosInsumo GastoDeInsumo[]
   compra Compra[]
 
 }
@@ -46,7 +46,7 @@ model Producto {
   nombre String
   cantidad Int
   precio Int
-  compra CreacionesDeProductos[]
+  creaciones CreacionesDeProductos[]
   venta Ventas[]
 }
 
@@ -78,5 +78,6 @@ model Obligacion {
 model Usuario {
   id Int @id @default(autoincrement())
   nombreUsuario String
+  nombre String
   contrasena String
 }
