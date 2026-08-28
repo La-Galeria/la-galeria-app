@@ -13,61 +13,61 @@ datasource db {
 
 // Models
 
-model Insumos {
+model Insumo {
   id Int @id @default(autoincrement())
   nombre String
   cantidad Int
 
 
-  gastosInsumos GastoInsumos[]
-  compras Compras[]
+  gastosInsumo GastoInsumo[]
+  compra Compra[]
 
 }
 
-model GastoDeInsumos {
+model GastoDeInsumo {
   id Int @id @default(autoincrement())
   fecha DateTime
-  insumo Insumo @relation(fields: [idInsumos], references: [id])
+  insumo Insumo @relation(fields: [idInsumo], references: [id])
   idInsumo Int
   cantidad Int
 }
 
-model Compras {
+model Compra {
   id Int @id @default(autoincrement())
   fecha DateTime
-  insumo Insumo @relation(fields: [idInsumos], references: [id])
+  insumo Insumo @relation(fields: [idInsumo], references: [id])
   idInsumo Int
   cantidad Int
   valorTotal Int
 }
 
-model Productos {
+model Producto {
   id Int @id @default(autoincrement())
   nombre String
   cantidad Int
   precio Int
-  compras CreacionesDeProductos[]
-  ventas Ventas[]
+  compra CreacionesDeProductos[]
+  venta Ventas[]
 }
 
-model CreacionesDeProductos {
+model CreacionDeProducto {
   id Int @id @default(autoincrement())
   fecha DateTime
-  producto Producto @relation(fields: [idProductos], references: [id])
-  idProductos Int
+  producto Producto @relation(fields: [idProducto], references: [id])
+  idProducto Int
   cantidad Int
 }
 
-model Ventas {
+model Venta {
   id Int @id @default(autoincrement())
   fecha DateTime
-  producto Producto @relation(fields: [idProductos], references: [id])
-  idProductos Int
+  producto Producto @relation(fields: [idProducto], references: [id])
+  idProducto Int
   cantidad Int
   valorVenta Int
 }
 
-model Obligaciones {
+model Obligacion {
   id Int @id @default(autoincrement())
   fecha DateTime
   descripcion String
