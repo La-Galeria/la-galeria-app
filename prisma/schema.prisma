@@ -20,7 +20,7 @@ model Insumo {
 
 
   gastosInsumo GastoDeInsumo[]
-  compra Compra[]
+  compras Compra[]
 
 }
 
@@ -46,8 +46,8 @@ model Producto {
   nombre String
   cantidad Int
   precio Int
-  creaciones CreacionesDeProductos[]
-  venta Ventas[]
+  creaciones CreacionDeProducto[]
+  ventas Venta[]
 }
 
 model CreacionDeProducto {
