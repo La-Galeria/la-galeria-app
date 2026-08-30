@@ -14,7 +14,7 @@ export default function SubmoduleLink({ text, route, InnerIcon }: SubmoduleLinkP
     <Link href={route}>
       <StandardStyleCard Icon={GrNext} placeTagAtLeft={false}>
         <h2>{text}</h2>
-        <InnerIcon className="size-10 text-orange-950" />
+        <InnerIcon className="size-10 text-primary" />
       </StandardStyleCard>
     </Link>
   );
