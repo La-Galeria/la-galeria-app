@@ -17,11 +17,14 @@ model Insumo {
   id Int @id @default(autoincrement())
   nombre String
   cantidad Int
-  gastos InsumoGastado[]
-  compras CompraInsumo[]
+
+
+  gastosInsumo GastoDeInsumo[]
+  compras Compra[]
+
 }
 
-model InsumoGastado {
+model GastoDeInsumo {
   id Int @id @default(autoincrement())
   fecha DateTime
   insumo Insumo @relation(fields: [idInsumo], references: [id])
@@ -29,7 +32,7 @@ model InsumoGastado {
   cantidad Int
 }
 
-model CompraInsumo {
+model Compra {
   id Int @id @default(autoincrement())
   fecha DateTime
   insumo Insumo @relation(fields: [idInsumo], references: [id])
@@ -42,47 +45,29 @@ model Producto {
   id Int @id @default(autoincrement())
   nombre String
   cantidad Int
-  precioVenta Int
-  compras CompraProducto[]
-  ventas VentaProducto[]
-}
-
-model CompraProducto {
-  id Int @id @default(autoincrement())
-  fecha DateTime
-  producto Producto @relation(fields: [idProducto], references: [id])
-  idProducto Int
-  cantidad Int
-  valorTotal Int
-}
-
-model VentaProducto {
-  id Int @id @default(autoincrement())
-  fecha DateTime
-  producto Producto @relation(fields: [idProducto], references: [id])
-  idProducto Int
-  cantidad Int
-  valor Int
-}
-
-model Servicio {
-  id Int @id @default(autoincrement())
-  nombre String
-  descripcion String?
   precio Int
-  ventas VentaServicio[]
+  creaciones CreacionDeProducto[]
+  ventas Venta[]
 }
 
-model VentaServicio {
+model CreacionDeProducto {
   id Int @id @default(autoincrement())
   fecha DateTime
-  servicio Servicio @relation(fields: [idServicio], references: [id])
-  idServicio Int
+  producto Producto @relation(fields: [idProducto], references: [id])
+  idProducto Int
   cantidad Int
-  valor Int
 }
 
-model Pago {
+model Venta {
+  id Int @id @default(autoincrement())
+  fecha DateTime
+  producto Producto @relation(fields: [idProducto], references: [id])
+  idProducto Int
+  cantidad Int
+  valorVenta Int
+}
+
+model Obligacion {
   id Int @id @default(autoincrement())
   fecha DateTime
   descripcion String
@@ -93,5 +78,6 @@ model Pago {
 model Usuario {
   id Int @id @default(autoincrement())
   nombreUsuario String
+  nombre String
   contrasena String
 }
